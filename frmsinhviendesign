@@ -1,0 +1,258 @@
+namespace De01
+{
+    partial class frmSinhVien
+    {
+        private System.ComponentModel.IContainer components = null;
+
+        private System.Windows.Forms.Label lblMa;
+        private System.Windows.Forms.TextBox txtMa;
+        private System.Windows.Forms.Label lblHoTen;
+        private System.Windows.Forms.TextBox txtHoTen;
+        private System.Windows.Forms.Label lblNgay;
+        private System.Windows.Forms.DateTimePicker dtNgay;
+        private System.Windows.Forms.Label lblGioiTinh;
+        private System.Windows.Forms.ComboBox cboGioiTinh;
+        private System.Windows.Forms.Label lblLop;
+        private System.Windows.Forms.ComboBox cboLop;
+        private System.Windows.Forms.DataGridView dgvSinhVien;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnLuu;
+        private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.TextBox txtTim;
+        private System.Windows.Forms.Label lblTim;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null)) components.Dispose();
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.lblMa = new System.Windows.Forms.Label();
+            this.txtMa = new System.Windows.Forms.TextBox();
+            this.lblHoTen = new System.Windows.Forms.Label();
+            this.txtHoTen = new System.Windows.Forms.TextBox();
+            this.lblNgay = new System.Windows.Forms.Label();
+            this.dtNgay = new System.Windows.Forms.DateTimePicker();
+            this.lblGioiTinh = new System.Windows.Forms.Label();
+            this.cboGioiTinh = new System.Windows.Forms.ComboBox();
+            this.lblLop = new System.Windows.Forms.Label();
+            this.cboLop = new System.Windows.Forms.ComboBox();
+            this.dgvSinhVien = new System.Windows.Forms.DataGridView();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.txtTim = new System.Windows.Forms.TextBox();
+            this.lblTim = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVien)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // lblMa
+            // 
+            this.lblMa.AutoSize = true;
+            this.lblMa.Location = new System.Drawing.Point(12, 15);
+            this.lblMa.Name = "lblMa";
+            this.lblMa.Size = new System.Drawing.Size(100, 20);
+            this.lblMa.TabIndex = 0;
+            this.lblMa.Text = "Mã sinh viên:";
+            // 
+            // txtMa
+            // 
+            this.txtMa.Location = new System.Drawing.Point(110, 12);
+            this.txtMa.Name = "txtMa";
+            this.txtMa.Size = new System.Drawing.Size(150, 26);
+            this.txtMa.TabIndex = 1;
+            // 
+            // lblHoTen
+            // 
+            this.lblHoTen.AutoSize = true;
+            this.lblHoTen.Location = new System.Drawing.Point(280, 15);
+            this.lblHoTen.Name = "lblHoTen";
+            this.lblHoTen.Size = new System.Drawing.Size(61, 20);
+            this.lblHoTen.TabIndex = 2;
+            this.lblHoTen.Text = "Họ tên:";
+            // 
+            // txtHoTen
+            // 
+            this.txtHoTen.Location = new System.Drawing.Point(330, 12);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.Size = new System.Drawing.Size(220, 26);
+            this.txtHoTen.TabIndex = 3;
+            // 
+            // lblNgay
+            // 
+            this.lblNgay.AutoSize = true;
+            this.lblNgay.Location = new System.Drawing.Point(12, 50);
+            this.lblNgay.Name = "lblNgay";
+            this.lblNgay.Size = new System.Drawing.Size(82, 20);
+            this.lblNgay.TabIndex = 4;
+            this.lblNgay.Text = "Ngày sinh:";
+            // 
+            // dtNgay
+            // 
+            this.dtNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNgay.Location = new System.Drawing.Point(110, 45);
+            this.dtNgay.Name = "dtNgay";
+            this.dtNgay.Size = new System.Drawing.Size(150, 26);
+            this.dtNgay.TabIndex = 5;
+            // 
+            // lblGioiTinh
+            // 
+            this.lblGioiTinh.AutoSize = true;
+            this.lblGioiTinh.Location = new System.Drawing.Point(280, 50);
+            this.lblGioiTinh.Name = "lblGioiTinh";
+            this.lblGioiTinh.Size = new System.Drawing.Size(71, 20);
+            this.lblGioiTinh.TabIndex = 6;
+            this.lblGioiTinh.Text = "Giới tính:";
+            // 
+            // cboGioiTinh
+            // 
+            this.cboGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGioiTinh.Location = new System.Drawing.Point(330, 47);
+            this.cboGioiTinh.Name = "cboGioiTinh";
+            this.cboGioiTinh.Size = new System.Drawing.Size(100, 28);
+            this.cboGioiTinh.TabIndex = 7;
+            // 
+            // lblLop
+            // 
+            this.lblLop.AutoSize = true;
+            this.lblLop.Location = new System.Drawing.Point(450, 50);
+            this.lblLop.Name = "lblLop";
+            this.lblLop.Size = new System.Drawing.Size(40, 20);
+            this.lblLop.TabIndex = 8;
+            this.lblLop.Text = "Lớp:";
+            // 
+            // cboLop
+            // 
+            this.cboLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLop.Location = new System.Drawing.Point(490, 47);
+            this.cboLop.Name = "cboLop";
+            this.cboLop.Size = new System.Drawing.Size(160, 28);
+            this.cboLop.TabIndex = 9;
+            this.cboLop.SelectedIndexChanged += new System.EventHandler(this.cboLop_SelectedIndexChanged);
+            // 
+            // dgvSinhVien
+            // 
+            this.dgvSinhVien.AllowUserToAddRows = false;
+            this.dgvSinhVien.AllowUserToDeleteRows = false;
+            this.dgvSinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSinhVien.ColumnHeadersHeight = 34;
+            this.dgvSinhVien.Location = new System.Drawing.Point(15, 160);
+            this.dgvSinhVien.MultiSelect = false;
+            this.dgvSinhVien.Name = "dgvSinhVien";
+            this.dgvSinhVien.ReadOnly = true;
+            this.dgvSinhVien.RowHeadersWidth = 62;
+            this.dgvSinhVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSinhVien.Size = new System.Drawing.Size(640, 300);
+            this.dgvSinhVien.TabIndex = 18;
+            // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(15, 85);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(75, 25);
+            this.btnThem.TabIndex = 10;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.Location = new System.Drawing.Point(100, 85);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(75, 25);
+            this.btnSua.TabIndex = 11;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Location = new System.Drawing.Point(185, 85);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(75, 25);
+            this.btnXoa.TabIndex = 12;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.Location = new System.Drawing.Point(270, 85);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(75, 25);
+            this.btnLuu.TabIndex = 13;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.Location = new System.Drawing.Point(355, 85);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(75, 25);
+            this.btnHuy.TabIndex = 14;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Location = new System.Drawing.Point(440, 85);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(75, 25);
+            this.btnThoat.TabIndex = 15;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // txtTim
+            // 
+            this.txtTim.Location = new System.Drawing.Point(110, 127);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(300, 26);
+            this.txtTim.TabIndex = 17;
+            this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
+            // 
+            // lblTim
+            // 
+            this.lblTim.AutoSize = true;
+            this.lblTim.Location = new System.Drawing.Point(12, 130);
+            this.lblTim.Name = "lblTim";
+            this.lblTim.Size = new System.Drawing.Size(105, 20);
+            this.lblTim.TabIndex = 16;
+            this.lblTim.Text = "Tìm (Mã/Tên):";
+            // 
+            // frmSinhVien
+            // 
+            this.ClientSize = new System.Drawing.Size(680, 480);
+            this.Controls.Add(this.lblMa);
+            this.Controls.Add(this.txtMa);
+            this.Controls.Add(this.lblHoTen);
+            this.Controls.Add(this.txtHoTen);
+            this.Controls.Add(this.lblNgay);
+            this.Controls.Add(this.dtNgay);
+            this.Controls.Add(this.lblGioiTinh);
+            this.Controls.Add(this.cboGioiTinh);
+            this.Controls.Add(this.lblLop);
+            this.Controls.Add(this.cboLop);
+            this.Controls.Add(this.btnThem);
+            this.Controls.Add(this.btnSua);
+            this.Controls.Add(this.btnXoa);
+            this.Controls.Add(this.btnLuu);
+            this.Controls.Add(this.btnHuy);
+            this.Controls.Add(this.btnThoat);
+            this.Controls.Add(this.lblTim);
+            this.Controls.Add(this.txtTim);
+            this.Controls.Add(this.dgvSinhVien);
+            this.Name = "frmSinhVien";
+            this.Text = "QUẢN LÝ SINH VIÊN - DE01";
+            this.Load += new System.EventHandler(this.frmSinhVien_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVien)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+    }
+}

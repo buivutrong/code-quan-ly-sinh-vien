@@ -1,0 +1,181 @@
+using De01.Models;
+using System;
+using System.Data.Entity;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace De01
+{
+    public partial class frmSinhVien : Form
+    {
+        De01Context context = new De01Context();
+        bool isAdding = false;
+
+        public frmSinhVien()
+        {
+            InitializeComponent();
+        }
+
+        private void frmSinhVien_Load(object sender, EventArgs e)
+        {
+            cboGioiTinh.Items.AddRange(new string[] { "Nam", "Nữ" });
+            LoadLop();
+            LoadDataGrid();
+            SetState(true);
+        }
+
+        private void LoadLop()
+        {
+            var list = context.Lops.ToList();
+            cboLop.DataSource = list;
+            cboLop.DisplayMember = "TenLop";
+            cboLop.ValueMember = "MaLop";
+        }
+
+        private void LoadDataGrid()
+        {
+            dgvSinhVien.DataSource = context.SinhViens.Include(s => s.Lop)
+                .Select(s => new {
+                    s.MaSV,
+                    s.HoTen,
+                    NgaySinh = s.NgaySinh,
+                    s.GioiTinh,
+                    Lop = s.Lop.TenLop
+                }).ToList();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            isAdding = true;
+            ClearInput();
+            SetState(false);
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (dgvSinhVien.CurrentRow == null) return;
+            isAdding = false;
+            var ma = dgvSinhVien.CurrentRow.Cells["MaSV"].Value.ToString();
+            var sv = context.SinhViens.Find(ma);
+            if (sv != null)
+            {
+                txtMa.Text = sv.MaSV;
+                txtHoTen.Text = sv.HoTen;
+                dtNgay.Value = sv.NgaySinh;
+                cboGioiTinh.SelectedItem = sv.GioiTinh;
+                cboLop.SelectedValue = sv.MaLop;
+                SetState(false);
+            }
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtMa.Text) || string.IsNullOrWhiteSpace(txtHoTen.Text))
+                {
+                    MessageBox.Show("Mã và Họ tên không được để trống.");
+                    return;
+                }
+
+                if (isAdding)
+                {
+                    var sv = new SinhVien
+                    {
+                        MaSV = txtMa.Text.Trim(),
+                        HoTen = txtHoTen.Text.Trim(),
+                        NgaySinh = dtNgay.Value,
+                        GioiTinh = cboGioiTinh.SelectedItem?.ToString(),
+                        MaLop = cboLop.SelectedValue?.ToString()
+                    };
+                    context.SinhViens.Add(sv);
+                }
+                else
+                {
+                    var sv = context.SinhViens.Find(txtMa.Text.Trim());
+                    if (sv != null)
+                    {
+                        sv.HoTen = txtHoTen.Text.Trim();
+                        sv.NgaySinh = dtNgay.Value;
+                        sv.GioiTinh = cboGioiTinh.SelectedItem?.ToString();
+                        sv.MaLop = cboLop.SelectedValue?.ToString();
+                    }
+                }
+
+                context.SaveChanges();
+                LoadDataGrid();
+                SetState(true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (dgvSinhVien.CurrentRow == null) return;
+            var ma = dgvSinhVien.CurrentRow.Cells["MaSV"].Value.ToString();
+            var sv = context.SinhViens.Find(ma);
+            if (sv != null)
+            {
+                if (MessageBox.Show("Bạn có chắc muốn xóa?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    context.SinhViens.Remove(sv);
+                    context.SaveChanges();
+                    LoadDataGrid();
+                }
+            }
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            SetState(true);
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SetState(bool normal)
+        {
+            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = normal;
+            btnLuu.Enabled = btnHuy.Enabled = !normal;
+            txtMa.Enabled = isAdding;
+            if (normal)
+            {
+                ClearInput();
+            }
+        }
+
+        private void ClearInput()
+        {
+            txtMa.Clear();
+            txtHoTen.Clear();
+            dtNgay.Value = DateTime.Now;
+            if (cboGioiTinh.Items.Count > 0) cboGioiTinh.SelectedIndex = 0;
+            if (cboLop.Items.Count > 0) cboLop.SelectedIndex = 0;
+        }
+
+        private void txtTim_TextChanged(object sender, EventArgs e)
+        {
+            var keyword = txtTim.Text.Trim().ToLower();
+            var data = context.SinhViens.Include(s => s.Lop)
+                .Where(s => s.MaSV.ToLower().Contains(keyword) || s.HoTen.ToLower().Contains(keyword))
+                .Select(s => new {
+                    s.MaSV,
+                    s.HoTen,
+                    NgaySinh = s.NgaySinh,
+                    s.GioiTinh,
+                    Lop = s.Lop.TenLop
+                }).ToList();
+            dgvSinhVien.DataSource = data;
+        }
+
+        private void cboLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
